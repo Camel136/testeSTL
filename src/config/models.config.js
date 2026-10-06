@@ -1,7 +1,7 @@
 export const MODEL_CONFIG = {
-  "STLFlix Car": {
+  "STLAI Car": {
     enabled: true,
-    label: "STLFlix Car",
+    label: "STLAI Car",
     path: "/models/StlAI_Car.glb",
     parts: [
       {
@@ -14,11 +14,19 @@ export const MODEL_CONFIG = {
     ],
   },
 
-  // TODO: Add a second 3D model following the same pattern above.
-  // Each model part should also include:
-  // - a default texture identifier
-  // - an alpha/opacity map path
-  // - a list of texture variants, each with a display name, a unique value key,
-  //   the texture file path, and a thumbnail image path
-  // The config structure should make it easy to add new models in the future.
+  "STLFlix Car": {
+    enabled: true,
+    label: "STLFlix Car",
+    path: "/models/StlFlix_Car.glb",
+    parts: [
+      {
+        nodeId: "StlFlix_Car", 
+        label: "Cor",
+        position: [0, 0, 0],
+        rotation: [0, 0, 0],
+        scale: 1,
+      },
+    ],
+  },
+
 }
