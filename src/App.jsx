@@ -2,6 +2,7 @@ import React, { Suspense } from "react"
 import { Canvas } from "@react-three/fiber"
 import Navbar from "./layout/Navbar"
 import Experience from "./webgl/Experience"
+import ModelSelected from "./components/modelSelected/ModelSelected"
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Navbar />
 
       <div className="flex flex-1 min-h-0">
-        {/* TODO: Add left panel (Model Selector) */}
+     <ModelSelected />
 
         <div className="relative flex-1 bg-[#444444]">
           <Canvas

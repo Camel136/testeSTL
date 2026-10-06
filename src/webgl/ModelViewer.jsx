@@ -9,7 +9,6 @@ useGLTF.preload(modelConfig.path)
 
 function ModelViewer(props) {
   const { nodes } = useGLTF(modelConfig.path)
-  console.log('...........', nodes);
 
   const node = nodes[part.nodeId]
   if (!node) return null
