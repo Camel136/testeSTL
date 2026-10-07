@@ -6,6 +6,8 @@ import ModelSelected from "./components/modelSelected/ModelSelected"
 import ColorSelected from "./components/colorSelected/ColorlSelected"
 import DownloadButton from "./components/DownloadButton/downloadButton"
 import Loader from "./components/loader/loader"
+import RotationButton from "./components/rorationButton/rotationButton"
+
 function App() {
   return (
     <div className="h-screen flex flex-col overflow-hidden">
@@ -28,6 +30,7 @@ function App() {
           </Canvas>
 
       <DownloadButton />
+      <RotationButton/>
         </div>
 
         <ColorSelected />

@@ -1,0 +1,13 @@
+
+ .button-rotation {
+   position: absolute;
+   top: 16px;
+   left: 16px;
+   z-index: 10;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 6px;
+   background: #06a2eb;
+   color: #fff;
+   cursor: pointer;
+ }

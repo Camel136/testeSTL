@@ -1,10 +1,11 @@
-import React, { useContext } from "react"
+import React, { useContext,useRef } from "react"
 import { useGLTF, useTexture } from "@react-three/drei"
+import { useFrame } from "@react-three/fiber";
 import { MODEL_CONFIG } from "../config/models.config"
 import { Context } from "../components/context/context"
 
 function ModelViewer(props) {
-  const { selectedModel, textureID } = useContext(Context)
+  const { selectedModel, textureID, rotationEnabled } = useContext(Context)
   const part = selectedModel.parts[0]
   const { nodes } = useGLTF(selectedModel.path)
   const textures = useTexture(selectedModel.textures[textureID])
@@ -18,8 +19,16 @@ function ModelViewer(props) {
   const node = nodes[part.nodeId]
   if (!node) return null
 
+  const modelRef = useRef();
+
+  useFrame((_, delta) => {
+    if (rotationEnabled) {
+      modelRef.current.rotation.y += delta * 0.5;
+    }
+  });
+
   return (
-    <group {...props} dispose={null}>
+    <group {...props}  ref={modelRef} dispose={null}>
       <mesh
         geometry={node.geometry}
         position={part.position}
