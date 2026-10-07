@@ -10,6 +10,9 @@ function ModelViewer(props) {
 
   const { nodes } = useGLTF(modelConfig.path)
   const texture = useTexture(modelConfig.bakedTexturePathA)
+  texture.flipY = false;
+  // texture.colorSpace = THREE.SRGBColorSpace; //aqui foi recomdado como boa pratica 
+  texture.anisotropy = 16;
 
   const node = nodes[part.nodeId]
   if (!node) return null

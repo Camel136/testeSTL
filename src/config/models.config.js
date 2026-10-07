@@ -4,6 +4,7 @@ export const MODEL_CONFIG = {
     label: "STLAI Car",
     path: "/models/StlAI_Car.glb",
     bakedTexturePathA: "/textures/StlAI_Car/StlAiCar_A.png",
+    bakedTexturePathB: "/textures/StlAI_Car/StlAiCar_B.png",
     parts: [
       {
         nodeId: "StlAI_Car", // mesh name inside the .glb (use gltfjsx or https://gltf.pmnd.rs to inspect)
