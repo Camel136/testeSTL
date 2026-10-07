@@ -4,15 +4,13 @@ import { MODEL_CONFIG } from "../config/models.config"
 import { Context } from "../components/context/context"
 
 function ModelViewer(props) {
-  const { modelID } = useContext(Context)
-  const modelConfig = MODEL_CONFIG[modelID] ?? MODEL_CONFIG.STLAI_Car
-  const part = modelConfig.parts[0]
+  const { selectedModel, textureID } = useContext(Context)
+  const part = selectedModel.parts[0]
+  const { nodes } = useGLTF(selectedModel.path)
+  const textures = useTexture(selectedModel.textures[textureID])
 
-  const { nodes } = useGLTF(modelConfig.path)
-  const texture = useTexture(modelConfig.bakedTexturePathA)
-  texture.flipY = false;
-  // texture.colorSpace = THREE.SRGBColorSpace; //aqui foi recomdado como boa pratica 
-  texture.anisotropy = 16;
+  textures.flipY = false;
+  textures.anisotropy = 16;
 
   const node = nodes[part.nodeId]
   if (!node) return null
@@ -25,7 +23,7 @@ function ModelViewer(props) {
         rotation={part.rotation}
         scale={part.scale}
       >
-        <meshStandardMaterial map={texture} />
+        <meshStandardMaterial map={textures} />
       </mesh>
     </group>
   )
@@ -33,7 +31,9 @@ function ModelViewer(props) {
 
 Object.values(MODEL_CONFIG).forEach((modelConfig) => {
   useGLTF.preload(modelConfig.path)
-  useTexture.preload(modelConfig.bakedTexturePathA)
+  Object.values(modelConfig.textures).forEach((texturePath) => {
+    useTexture.preload(texturePath)
+  })
 })
 
 export default ModelViewer
