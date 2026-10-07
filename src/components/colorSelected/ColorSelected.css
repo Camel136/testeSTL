@@ -40,7 +40,7 @@
 }
 
 .model-selected__item.is-selected {
-  border-color: #f70505;
+  border-color: #06a2eb;
   background: rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }

@@ -4,6 +4,7 @@ import Navbar from "./layout/Navbar"
 import Experience from "./webgl/Experience"
 import ModelSelected from "./components/modelSelected/ModelSelected"
 import ColorSelected from "./components/colorSelected/ColorlSelected"
+import DownloadButton from "./components/DownloadButton/downloadButton"
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
             </Suspense>
           </Canvas>
 
-          {/* TODO: Add Download button */}
+      <DownloadButton />
         </div>
 
         <ColorSelected />
