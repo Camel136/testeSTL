@@ -10,8 +10,8 @@ export const MODEL_CONFIG = {
     },
 
     thumbs: {
-      A: "/thumbnails/StlAI_CarA.png",
-      B: "/thumbnails/StlAI_CarB.png",
+      A: "/thumbnails/StlAiCar_A.png",
+      B: "/thumbnails/StlAiCar_B.png",
     },
 
     parts: [
@@ -36,8 +36,8 @@ export const MODEL_CONFIG = {
     },
 
     thumbs: {
-      A: "/thumbnails/StlFlixCar.png",
-      B: "/thumbnails/StlFlixCar.png",
+      A: "/thumbnails/StlFlixCar_A.png",
+      B: "/thumbnails/StlFlixCar_B.png"
     },
 
     parts: [

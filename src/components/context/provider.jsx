@@ -7,13 +7,13 @@ export function Provider({ children }) {
   const [textureID, setTextureID] = useState('A');
   const selectedModel = MODEL_CONFIG[modelID] ?? MODEL_CONFIG.STLAI_Car;
 
-  const value = useMemo(() => ({
+  const value = {
     modelID,
     setModelID,
     selectedModel,
     textureID,
     setTextureID,
-  }), [modelID, selectedModel, textureID]);
+  }
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }
