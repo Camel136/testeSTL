@@ -3,6 +3,7 @@ export const MODEL_CONFIG = {
     enabled: true,
     label: "STLAI Car",
     path: "/models/StlAI_Car.glb",
+    alphaTexture: "/textures/StlAI_Car/StlAiCar_Alpha.png",
 
      textures: {
       A: "/textures/StlAI_Car/StlAiCar_A.png",
@@ -29,6 +30,7 @@ export const MODEL_CONFIG = {
     enabled: true,
     label: "STLFlix Car",
     path: "/models/StlFlix_Car.glb",
+    alphaTexture: "/textures/StlFlix_Car/StlFlix_Car_Alpha.png",
 
       textures: {
       A: "/textures/StlFlix_Car/StlFlix_Car_A.png",

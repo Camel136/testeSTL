@@ -8,9 +8,12 @@ function ModelViewer(props) {
   const part = selectedModel.parts[0]
   const { nodes } = useGLTF(selectedModel.path)
   const textures = useTexture(selectedModel.textures[textureID])
+  const alphaTexture = useTexture(selectedModel.alphaTexture)
 
   textures.flipY = false;
   textures.anisotropy = 16;
+  alphaTexture.flipY = false;
+  alphaTexture.anisotropy = 16;
 
   const node = nodes[part.nodeId]
   if (!node) return null
@@ -23,7 +26,11 @@ function ModelViewer(props) {
         rotation={part.rotation}
         scale={part.scale}
       >
-        <meshStandardMaterial map={textures} />
+        <meshStandardMaterial
+          map={textures}
+          alphaMap={alphaTexture}
+          transparent
+        />
       </mesh>
     </group>
   )
@@ -34,6 +41,7 @@ Object.values(MODEL_CONFIG).forEach((modelConfig) => {
   Object.values(modelConfig.textures).forEach((texturePath) => {
     useTexture.preload(texturePath)
   })
+  useTexture.preload(modelConfig.alphaTexture)
 })
 
 export default ModelViewer

@@ -19,6 +19,7 @@ function App() {
             camera={{ position: [0, 2, 6], fov: 50 }}
             style={{ width: "100%", height: "100%" }}
           >
+          <ambientLight intensity={1.5} color="#cf5e13" /> 
             <Suspense fallback={null}>
               <Experience />
             </Suspense>
