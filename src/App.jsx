@@ -5,7 +5,7 @@ import Experience from "./webgl/Experience"
 import ModelSelected from "./components/modelSelected/ModelSelected"
 import ColorSelected from "./components/colorSelected/ColorlSelected"
 import DownloadButton from "./components/DownloadButton/downloadButton"
-
+import Loader from "./components/loader/loader"
 function App() {
   return (
     <div className="h-screen flex flex-col overflow-hidden">
@@ -21,6 +21,7 @@ function App() {
             style={{ width: "100%", height: "100%" }}
           >
           <ambientLight intensity={1.5} color="#cf5e13" /> 
+            <Loader />
             <Suspense fallback={null}>
               <Experience />
             </Suspense>
