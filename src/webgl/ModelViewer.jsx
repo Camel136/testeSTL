@@ -1,14 +1,15 @@
-import React from "react"
-import { useGLTF } from "@react-three/drei"
+import React, { useContext } from "react"
+import { useGLTF, useTexture } from "@react-three/drei"
 import { MODEL_CONFIG } from "../config/models.config"
-
-const modelConfig = MODEL_CONFIG["STLAI Car"]
-const part = modelConfig.parts[0]
-
-useGLTF.preload(modelConfig.path)
+import { Context } from "../components/context/context"
 
 function ModelViewer(props) {
+  const { modelID } = useContext(Context)
+  const modelConfig = MODEL_CONFIG[modelID] ?? MODEL_CONFIG.STLAI_Car
+  const part = modelConfig.parts[0]
+
   const { nodes } = useGLTF(modelConfig.path)
+  const texture = useTexture(modelConfig.bakedTexturePathA)
 
   const node = nodes[part.nodeId]
   if (!node) return null
@@ -21,10 +22,15 @@ function ModelViewer(props) {
         rotation={part.rotation}
         scale={part.scale}
       >
-        <meshStandardMaterial color="#cccccc" />
+        <meshStandardMaterial map={texture} />
       </mesh>
     </group>
   )
 }
+
+Object.values(MODEL_CONFIG).forEach((modelConfig) => {
+  useGLTF.preload(modelConfig.path)
+  useTexture.preload(modelConfig.bakedTexturePathA)
+})
 
 export default ModelViewer

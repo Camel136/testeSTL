@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber"
 import Navbar from "./layout/Navbar"
 import Experience from "./webgl/Experience"
 import ModelSelected from "./components/modelSelected/ModelSelected"
+// import ColorSelected from "./components/colorSelected/colorSelected"
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
           {/* TODO: Add Download button */}
         </div>
 
-        {/* TODO: Add right panel (Texture Configurator) */}
+        {/* <ColorSelected /> */}
       </div>
     </div>
   )

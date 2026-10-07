@@ -1,13 +1,14 @@
-import React, { useState } from "react"
+import React, { useContext } from "react"
 import "./ModelSelected.css"
+import { Context } from "../context/context";
 
 const models = [
-  { id: "stlai-car", label: "STLAI Car", thumbnail: "/thumbnails/StlAiCar.png" },
-  { id: "stlflix-car", label: "STLFlix Car", thumbnail: "/thumbnails/StlFlixCar.png" },
+  { id: "STLAI_Car", label: "STLAI Car", thumbnail: "/thumbnails/StlAiCar.png" },
+  { id: "STLFlix_Car", label: "STLFlix Car", thumbnail: "/thumbnails/StlFlixCar.png" },
 ]
 
 const ModelSelected = () => {
-  const [selectedModelId, setSelectedModelId] = useState(models[0].id)
+  const { modelID, setModelID } = useContext(Context);
 
   return (
     <aside className="model-selected">
@@ -15,14 +16,15 @@ const ModelSelected = () => {
 
       <div className="model-selected__list">
         {models.map((model) => {
-          const isSelected = selectedModelId === model.id
+          const isSelected = modelID === model.id
 
           return (
             <button
               key={model.id}
               type="button"
-              onClick={() => setSelectedModelId(model.id)}
+              onClick={() => setModelID(model.id)}
               className={`model-selected__item ${isSelected ? "is-selected" : ""}`}
+              aria-pressed={isSelected}
             >
               <img
                 src={model.thumbnail}
