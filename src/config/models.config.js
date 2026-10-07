@@ -10,6 +10,8 @@ export const MODEL_CONFIG = {
       B: "/textures/StlAI_Car/StlAiCar_B.png",
     },
 
+    thumbModel: "/thumbnails/StlAiCar.png",
+
     thumbs: {
       A: "/thumbnails/StlAiCar_A.png",
       B: "/thumbnails/StlAiCar_B.png",
@@ -36,6 +38,8 @@ export const MODEL_CONFIG = {
       A: "/textures/StlFlix_Car/StlFlix_Car_A.png",
       B: "/textures/StlFlix_Car/StlFlix_Car_B.png",
     },
+    thumbModel: "/thumbnails/StlFlixCar.png",
+
 
     thumbs: {
       A: "/thumbnails/StlFlixCar_A.png",

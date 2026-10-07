@@ -1,11 +1,7 @@
 import React, { useContext } from "react"
 import "./ModelSelected.css"
 import { Context } from "../context/context";
-
-const models = [
-  { id: "STLAI_Car", label: "STLAI Car", thumbnail: "/thumbnails/StlAiCar.png" },
-  { id: "STLFlix_Car", label: "STLFlix Car", thumbnail: "/thumbnails/StlFlixCar.png" },
-]
+import { MODEL_CONFIG } from "../../config/models.config"
 
 const ModelSelected = () => {
   const { modelID, setModelID } = useContext(Context);
@@ -15,19 +11,20 @@ const ModelSelected = () => {
       <h2 className="model-selected__title">Modelos</h2>
 
       <div className="model-selected__list">
-        {models.map((model) => {
-          const isSelected = modelID === model.id
+        {Object.entries(MODEL_CONFIG).map(([id, model]) => {
+
+          const isSelected = modelID === id
 
           return (
             <button
-              key={model.id}
+              key={id}
               type="button"
-              onClick={() => setModelID(model.id)}
+              onClick={() => setModelID(id)}
               className={`model-selected__item ${isSelected ? "is-selected" : ""}`}
               aria-pressed={isSelected}
             >
               <img
-                src={model.thumbnail}
+                src={model.thumbModel}
                 alt={model.label}
                 className="model-selected__thumb"
               />
