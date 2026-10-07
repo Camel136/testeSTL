@@ -30,6 +30,10 @@ function ModelViewer(props) {
           map={textures}
           alphaMap={alphaTexture}
           transparent
+          metalness={0.5}
+          roughness={0.1}
+
+
         />
       </mesh>
     </group>
