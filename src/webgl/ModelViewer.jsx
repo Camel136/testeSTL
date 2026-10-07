@@ -32,8 +32,6 @@ function ModelViewer(props) {
           transparent
           metalness={0.5}
           roughness={0.1}
-
-
         />
       </mesh>
     </group>
